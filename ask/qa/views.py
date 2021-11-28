@@ -18,7 +18,7 @@ def post_all_new_question(request):
         page = 1
     paginator = Paginator(posts, 10)
     page = paginator.page(page)
-    return render(request, 'templates/posts.html', {
+    return render(request, 'posts.html', {
         'title': 'New posts',
         'posts': page.object_list,
         'paginator': paginator,
@@ -36,7 +36,7 @@ def post_all_popular_question(request):
     posts = Question.objects.popular()
     paginator = Paginator(posts, 10)
     page = paginator.page(page)
-    return render(request, 'templates/posts.html', {
+    return render(request, 'posts.html', {
         'title': 'Popular',
         'posts': page.object_list,
         'paginator': paginator,
@@ -46,6 +46,6 @@ def post_all_popular_question(request):
 
 def one_post(request, pk):
     q = Question.objects.get_object_or_404(pk=pk)
-    return render(request, 'templates/post/one_post_page.html', {
+    return render(request, 'post/one_post_page.html', {
         'post': q,
     })
