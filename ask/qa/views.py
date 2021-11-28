@@ -1,6 +1,6 @@
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse
 from django.core.paginator import Paginator
-from .models import Question
+from .models import Question, Answer
 from django.shortcuts import render
 
 
@@ -46,6 +46,8 @@ def post_all_popular_question(request):
 
 def one_post(request, pk):
     q = Question.objects.get_object_or_404(pk=pk)
-    return render(request, 'templates/post/one_post_page.html',{
+    ans = Answer.objects.all().filter(question=pk)
+    return render(request, 'templates/post/one_post_page.html', {
         'post': q,
+        'answer': ans,
     })
