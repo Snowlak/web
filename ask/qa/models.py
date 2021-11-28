@@ -4,7 +4,7 @@ import django.contrib.auth.models as user
 
 class QuestionManager(models.Manager):
     def new(self):
-        return self.order_by('-added_at')
+        return self.order_by('-pk')
 
     def popular(self):
         return self.order_by('-rating')
@@ -19,6 +19,12 @@ class Question(models.Model):
     likes = models.ManyToManyField(user.User,
                                    related_name='question_like_user')
     objects = QuestionManager()
+
+    def __str__(self):
+        return self.title
+
+    def get_url(self):
+        return '/question/{}/'.format(self.pk)
 
 
 class Answer(models.Model):

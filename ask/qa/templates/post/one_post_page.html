@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> {{ post }}</title>
+</head>
+<body>
+    <h1> {{ post }} </h1>
+    <p> {{ post.text }}</p>
+    <hr>
+    <ul>
+        {% for ans in post.answer_set.all %}
+            <li>{{ ans }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
