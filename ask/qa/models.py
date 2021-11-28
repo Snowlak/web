@@ -39,4 +39,4 @@ class Answer(models.Model):
         return self.text
 
 
-Question.answer_set = Answer.objects.all().filter(question=Question.pk)
+Question.answer_set = Answer.objects
