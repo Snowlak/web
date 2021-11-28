@@ -1,6 +1,6 @@
 from django.http import HttpResponse, Http404
 from django.core.paginator import Paginator
-from models import Question
+from .models import Question
 from django.shortcuts import render
 
 
