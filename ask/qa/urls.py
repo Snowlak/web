@@ -1,14 +1,14 @@
-from django.conf.urls import url, include
+from django.conf.urls import url
 from django.contrib import admin
-import views
+from . import views
 
 urlpatterns = [
     url(r'^$', views.post_all_new_question),
-    url(r'^login/.*$', include('')),
-    url(r'^signup/.*', include('')),
-    url(r'^ask/.*', include('')),
+    url(r'^login/.*$', views.test),
+    url(r'^signup/.*', views.test),
+    url(r'^ask/.*', views.test),
     url(r'^popular/.*', views.post_all_popular_question),
-    url(r'^new/.*', include('')),
+    url(r'^new/.*', views.test),
     url(r'^admin/', admin.site.urls),
     url(r'^question/(?P<id>[0-9]+)/$', views.one_post)
 ]
