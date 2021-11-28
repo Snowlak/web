@@ -37,3 +37,6 @@ class Answer(models.Model):
 
     def __str__(self):
         return self.text
+
+
+Question.answer_set = Answer.objects.all().filter(question=Question.pk)

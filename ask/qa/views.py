@@ -46,8 +46,6 @@ def post_all_popular_question(request):
 
 def one_post(request, pk):
     q = Question.objects.get_object_or_404(pk=pk)
-    ans = Answer.objects.all().filter(question=pk)
     return render(request, 'templates/post/one_post_page.html', {
         'post': q,
-        'answer': ans,
     })
