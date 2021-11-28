@@ -11,7 +11,7 @@ def test(request, *args, **kwargs):
 def post_all_new_question(request):
     posts = Question.objects.new()
     try:
-        page = int(request.Get.get('page'))
+        page = int(request.GET.get('page'))
     except ValueError:
         page = 1
     except TypeError:
@@ -28,7 +28,7 @@ def post_all_new_question(request):
 
 def post_all_popular_question(request):
     try:
-        page = int(request.Get.get('page'))
+        page = int(request.GET.get('page'))
     except ValueError:
         page = 1
     except TypeError:
