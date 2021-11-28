@@ -1,5 +1,4 @@
 from django.conf.urls import url
-from django.contrib import admin
 from . import views
 
 urlpatterns = [
@@ -9,6 +8,5 @@ urlpatterns = [
     url(r'^ask/.*', views.test),
     url(r'^popular/.*', views.post_all_popular_question),
     url(r'^new/.*', views.test),
-    url(r'^admin/', admin.site.urls),
     url(r'^question/(?P<id>[0-9]+)/$', views.one_post)
 ]
