@@ -4,10 +4,10 @@ import django.contrib.auth.models as user
 
 class QuestionManager(models.Manager):
     def new(self):
-        return self.order_by('-pk')
+        return self.all().order_by('-added_at')
 
     def popular(self):
-        return self.order_by('-rating')
+        return self.all().order_by('-rating')
 
 
 class Question(models.Model):

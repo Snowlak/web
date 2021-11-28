@@ -9,7 +9,7 @@ def test(request, *args, **kwargs):
 
 
 def post_all_new_question(request):
-    posts = Question.objects.new()
+    posts = Question.objects.new().order_by('-id')
     try:
         page = int(request.GET.get('page'))
     except ValueError:
