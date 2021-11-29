@@ -9,7 +9,7 @@ def test(request, *args, **kwargs):
 
 
 def post_all_new_question(request):
-    posts = Question.objects.new().order_by('-id')
+    posts = Question.objects.all().order_by('-id')
     try:
         page = int(request.GET.get('page'))
     except ValueError:
@@ -33,7 +33,7 @@ def post_all_popular_question(request):
         page = 1
     except TypeError:
         page = 1
-    posts = Question.objects.popular()
+    posts = Question.objects.all().order_by('-rating')
     paginator = Paginator(posts, 10)
     page = paginator.page(page)
     return render(request, 'posts.html', {
