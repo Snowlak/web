@@ -8,5 +8,18 @@
     <h1>{{ title }}}</h1>
     {% for post in posts}
         <p><a href="{{ posts.get_url }}">{{ post }}</a></p>
+    <nav>
+        <ul class="pagination">
+            {% for p in paginator.page_range %}
+                {% if p.number == page.number %}
+                <li class="active">
+                {% else %}
+                <li>
+                {% endif %}
+                    <a href="?page={{ p }}">{{ p }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
 </body>
 </html>
