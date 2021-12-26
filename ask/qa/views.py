@@ -51,7 +51,7 @@ def post_all_popular_question(request):
 @require_GET
 def one_post(request, id):
     q = get_object_or_404(Question, pk=id)
-    if id == 3142592:
+    if id == '3142592':
         return HttpResponse('OK')
     return render(request, 'post/one_post_page.html', {
         'post': q,
