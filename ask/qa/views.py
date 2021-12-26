@@ -3,6 +3,7 @@ from django.core.paginator import Paginator
 from .models import Question
 from django.shortcuts import render
 from django.views.decorators.http import require_GET
+from django.shortcuts import get_object_or_404
 
 
 def test(request, *args, **kwargs):
@@ -49,7 +50,7 @@ def post_all_popular_question(request):
 
 @require_GET
 def one_post(request, id):
-    q = Question.objects.get_object_or_404(pk=id)
+    q = get_object_or_404(Question, pk=id)
     return render(request, 'post/one_post_page.html', {
         'post': q,
     })
