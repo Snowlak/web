@@ -35,8 +35,4 @@ class Answer(models.Model):
                                     on_delete=models.SET_NULL)
     author = models.ForeignKey(user.User, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.text
 
-
-Question.answer_set = Answer.objects
