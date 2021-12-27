@@ -9,7 +9,7 @@
     <p> {{ post.text }}</p>
     <hr>
     <ul>
-        {% for ans in post.answer_set %}
+        {% for ans in answer %}
             <li>{{ ans.text }}, {{ ans.author }}</li>
         {% endfor %}
     </ul>

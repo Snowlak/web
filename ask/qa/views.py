@@ -55,4 +55,5 @@ def one_post(request, id):
         return HttpResponse('OK')
     return render(request, 'post/one_post_page.html', {
         'post': q,
+        'answer': q.answer_set,
     })
