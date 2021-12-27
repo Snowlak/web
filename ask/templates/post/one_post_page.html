@@ -8,12 +8,10 @@
     <h1> {{ post.title }} </h1>
     <p> {{ post.text }}</p>
     <hr>
-    {% if answer %}
     <ul>
         {% for ans in answer %}
             <li>{{ ans.text }}</li>
         {% endfor %}
     </ul>
-    {% endif %}
 </body>
 </html>

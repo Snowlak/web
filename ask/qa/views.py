@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.core.paginator import Paginator
-from .models import Question, Answer
+from .models import Question
 from django.shortcuts import render
 from django.views.decorators.http import require_GET
 from django.shortcuts import get_object_or_404
@@ -51,8 +51,7 @@ def post_all_popular_question(request):
 @require_GET
 def one_post(request, id):
     q = get_object_or_404(Question, pk=id)
-    answers = Answer.objects.filter(q_id__exact=int(id))
     return render(request, 'post/one_post_page.html', {
         'post': q,
-        'answer': answers,
+        'answer': q.answer_set.all,
     })
