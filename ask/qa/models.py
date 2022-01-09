@@ -36,4 +36,4 @@ class Answer(models.Model):
     author = models.ForeignKey(user.User, on_delete=models.CASCADE)
 
 
-Question.answer_set = Answer.objects.filter(question_id__exact=Question.pk)
+Question.answer_set = Answer.objects
